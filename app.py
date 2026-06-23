@@ -23,7 +23,7 @@ ALLOWED_EXTENSIONS = {'mp3', 'wav', 'ogg', 'flac', 'webm', 'm4a', 'aac', 'wma'}
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-KEYS_FILE = 'agent_keys.json'
+KEYS_FILE = os.environ.get('KEYS_FILE_PATH', 'agent_keys.json')
 
 def load_keys():
     if os.path.exists(KEYS_FILE):
